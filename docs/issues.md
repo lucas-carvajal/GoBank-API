@@ -10,6 +10,8 @@
 ### In progress
 
 - GB-3: Set up UserManagementService
+  - Implement Handlers
+  - Set up auth token?
 
 
 ### Done

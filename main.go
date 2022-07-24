@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/go-sql-driver/mysql"
+	"gobank.com/services/userManagement"
 )
 
 func main() {
@@ -15,9 +16,10 @@ func main() {
 		return
 	}
 
-	//TODO initialize UserManagementService and ClaimManagementService
-	fmt.Println(db)
-	runServer()
+	userManagementServiceChannel := userManagement.Init(db)
+	//TODO initialize ClaimManagementService
+
+	runServer(userManagementServiceChannel)
 }
 
 func setUpAndTestDBConnection() (*sql.DB, error) {
